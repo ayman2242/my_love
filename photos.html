@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Beautiful Memories 📸</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="photos-page">
+    <div class="photos-container fade-in">
+      <h1 class="page-title">Our Beautiful Memories 📸</h1>
+
+      <div class="slider-container">
+        <button class="slider-btn prev-btn" onclick="changeSlide(-1)">❮</button>
+
+        <div class="slider-content">
+          <div class="slide active">
+            <div class="photo-placeholder">
+              <img src="img/photo1.jpg" alt="First photo together" class="photo">
+              <p class="placeholder-text">First Photo Together</p>
+            </div>
+            <p class="photo-caption">The moment everything changed ❤️</p>
+          </div>
+
+          <div class="slide">
+            <div class="photo-placeholder">
+              <img src="img/photo2.jpg" alt="Our First Date" class="photo">
+              <p class="placeholder-text">Our First Date</p>
+            </div>
+            <p class="photo-caption">Nervous but so happy to be with you</p>
+          </div>
+
+          <div class="slide">
+            <div class="photo-placeholder">
+              <img src="img/photo10.jpg" alt="First photo together" class="photo">
+              <p class="placeholder-text">Beautiful Sunset</p>
+            </div>
+            <p class="photo-caption">Watching the world paint itself for us</p>
+          </div>
+
+          <div class="slide">
+            <div class="photo-placeholder">
+              <img src="img/photo6.jpg" alt="First photo together"  class="photo1">
+              <p class="placeholder-text">Celebrating Together</p>
+            </div>
+            <p class="photo-caption">Every moment with you is a celebration</p>
+          </div>
+
+          <div class="slide">
+            <div class="photo-placeholder">
+              <img src="img/photo11.jpg" alt="First photo together" class="photo">
+              <p class="placeholder-text">Just Us</p>
+            </div>
+            <p class="photo-caption">My favorite place is next to you</p>
+          </div>
+
+          <div class="slide">
+            <div class="photo-placeholder">
+              <img src="img/photo7.jpg" alt="First photo together" class="photo">
+              <p class="placeholder-text">Making Memories</p>
+            </div>
+            <p class="photo-caption">Every day is an adventure with you</p>
+          </div>
+        </div>
+
+        <button class="slider-btn next-btn" onclick="changeSlide(1)">❯</button>
+      </div>
+
+      <div class="slider-dots" id="slider-dots"></div>
+
+      <div class="photo-actions">
+        <button class="back-btn" onclick="window.location.href='menu.html'">
+          ← Back to Menu
+        </button>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>Made with love ❤️</p>
+    </footer>
+
+    <script>
+      let currentSlide = 0;
+      const slides = document.querySelectorAll('.slide');
+      const dotsContainer = document.getElementById('slider-dots');
+
+      slides.forEach((_, index) => {
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        if (index === 0) dot.classList.add('active');
+        dot.onclick = () => goToSlide(index);
+        dotsContainer.appendChild(dot);
+      });
+
+      function showSlide(n) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        document.querySelectorAll('.dot').forEach(dot => dot.classList.remove('active'));
+
+        if (n >= slides.length) currentSlide = 0;
+        if (n < 0) currentSlide = slides.length - 1;
+
+        slides[currentSlide].classList.add('active');
+        document.querySelectorAll('.dot')[currentSlide].classList.add('active');
+      }
+
+      function changeSlide(direction) {
+        currentSlide += direction;
+        showSlide(currentSlide);
+      }
+
+      function goToSlide(n) {
+        currentSlide = n;
+        showSlide(currentSlide);
+      }
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') changeSlide(-1);
+        if (e.key === 'ArrowRight') changeSlide(1);
+      });
+    </script>
+  </body>
+</html>

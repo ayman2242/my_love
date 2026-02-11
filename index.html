@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For You ❤️</title>
+    <link rel="stylesheet" href="style.css" />
+    <meta
+      property="og:image"
+      content="https://bolt.new/static/og_default.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:image"
+      content="https://bolt.new/static/og_default.png"
+    />
+  </head>
+  <body class="password-page">
+    <div class="password-container fade-in">
+      <div class="heart-icon">❤️</div>
+      <h1>Only you can enter ❤️</h1>
+      <p class="subtitle">Enter the secret word to continue</p>
+
+      <div class="password-form">
+        <input
+          type="password"
+          id="password-input"
+          placeholder="Enter password..."
+          autocomplete="off"
+        />
+        <button id="enter-btn" onclick="checkPassword()">Enter</button>
+      </div>
+
+      <div id="error-message" class="error-message"></div>
+    </div>
+
+    <script>
+      function checkPassword() {
+        const password = document.getElementById("password-input").value;
+        const errorMessage = document.getElementById("error-message");
+
+        if (password === "forever") {
+          errorMessage.style.display = "none";
+          document
+            .querySelector(".password-container")
+            .classList.add("fade-out");
+          setTimeout(() => {
+            window.location.href = "menu.html";
+          }, 500);
+        } else {
+          errorMessage.textContent = "Wrong password, try again my love...";
+          errorMessage.style.display = "block";
+          document.getElementById("password-input").value = "";
+          document.getElementById("password-input").classList.add("shake");
+          setTimeout(() => {
+            document.getElementById("password-input").classList.remove("shake");
+          }, 500);
+        }
+      }
+
+      document
+        .getElementById("password-input")
+        .addEventListener("keypress", function (e) {
+          if (e.key === "Enter") {
+            checkPassword();
+          }
+        });
+    </script>
+  </body>
+</html>

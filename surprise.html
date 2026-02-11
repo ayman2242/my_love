@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Special Surprise 🎁</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="surprise-page">
+    <div class="surprise-container fade-in">
+      <div id="initial-view" class="initial-view">
+        <h1 class="page-title">One More Thing... 🎁</h1>
+        <p class="surprise-hint">Click the gift to reveal your surprise</p>
+
+        <div class="gift-box" onclick="revealSurprise()">
+          <div class="gift-icon">🎁</div>
+        </div>
+      </div>
+
+      <div id="surprise-reveal" class="surprise-reveal">
+        <div class="hearts-animation" id="hearts-container"></div>
+
+        <div class="surprise-content">
+          <h2 class="surprise-title">Forever & Always</h2>
+
+          <div class="surprise-message">
+            <p>My dearest love,</p>
+
+            <p>This birthday is just the beginning of another beautiful year with you. But I want you to know that my love for you isn't measured in years, months, or days.</p>
+
+            <p>It's measured in moments—every smile, every laugh, every heartbeat when I'm with you.</p>
+
+            <p class="highlight-text">I promise you:</p>
+
+            <ul class="promise-list">
+              <li>To love you more with each passing day</li>
+              <li>To be your biggest supporter and your safe place</li>
+              <li>To make you laugh when you need it most</li>
+              <li>To hold you close during difficult times</li>
+              <li>To celebrate every little victory with you</li>
+              <li>To build a beautiful future together</li>
+            </ul>
+
+            <p class="final-message">You are my today and all of my tomorrows. Happy Birthday, my forever love.</p>
+
+            <div class="infinity-symbol">∞</div>
+          </div>
+        </div>
+
+        <div class="surprise-actions">
+          <button class="back-btn" onclick="window.location.href='menu.html'">
+            ← Back to Menu
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>Made with love ❤️</p>
+    </footer>
+
+    <script>
+      function revealSurprise() {
+        const initialView = document.getElementById('initial-view');
+        const surpriseReveal = document.getElementById('surprise-reveal');
+        const giftBox = document.querySelector('.gift-box');
+
+        giftBox.classList.add('opening');
+
+        setTimeout(() => {
+          initialView.style.display = 'none';
+          surpriseReveal.style.display = 'block';
+          surpriseReveal.classList.add('fade-in');
+          createHearts();
+        }, 800);
+      }
+
+      function createHearts() {
+        const container = document.getElementById('hearts-container');
+        const heartSymbols = ['❤️', '💕', '💖', '💗', '💓', '💝'];
+
+        for (let i = 0; i < 30; i++) {
+          setTimeout(() => {
+            const heart = document.createElement('div');
+            heart.classList.add('floating-heart');
+            heart.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            heart.style.fontSize = (Math.random() * 20 + 20) + 'px';
+            container.appendChild(heart);
+
+            setTimeout(() => {
+              heart.remove();
+            }, 6000);
+          }, i * 100);
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Special Place ❤️</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="menu-page">
+    <div class="menu-container fade-in">
+      <h1 class="menu-title">Happy Birthday, My Love ❤️</h1>
+      <p class="menu-subtitle">Choose where you want to go...</p>
+
+      <div class="cards-grid">
+        <div class="card" onclick="navigateTo('letter.html')">
+          <div class="card-icon">💌</div>
+          <h2>Love Letter</h2>
+          <p>Read my heart</p>
+        </div>
+
+        <div class="card" onclick="navigateTo('photos.html')">
+          <div class="card-icon">📸</div>
+          <h2>Our Photos</h2>
+          <p>Beautiful memories</p>
+        </div>
+
+        <div class="card" onclick="navigateTo('story.html')">
+          <div class="card-icon">⏳</div>
+          <h2>Our Story</h2>
+          <p>Our journey together</p>
+        </div>
+
+        <div class="card" onclick="navigateTo('surprise.html')">
+          <div class="card-icon">🎁</div>
+          <h2>Surprise</h2>
+          <p>Something special...</p>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>Made with love ❤️</p>
+    </footer>
+
+    <script>
+      function navigateTo(page) {
+        document.body.classList.add('fade-out');
+        setTimeout(() => {
+          window.location.href = page;
+        }, 300);
+      }
+    </script>
+  </body>
+</html>

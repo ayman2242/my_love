@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Love Letter ❤️</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="letter-page">
+    <div class="letter-container fade-in">
+      <div class="letter-header">
+        <h1>My Dearest Love 💌</h1>
+      </div>
+
+      <div class="letter-content">
+        <p id="typed-text" class="typed-text"></p>
+        <span class="cursor" id="cursor">|</span>
+      </div>
+
+      <div class="letter-actions">
+        <button class="back-btn" onclick="window.location.href='menu.html'">
+          ← Back to Menu
+        </button>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>Made with love ❤️</p>
+    </footer>
+
+    <script>
+      const letterText = `Happy Birthday, my beautiful love!
+
+Today is your special day, and I wanted to take a moment to tell you just how much you mean to me. From the first time we talked, I knew there was something magical about you. Your smile lights up my world, your laugh is my favorite sound, and your presence makes every moment worth living.
+
+You are my sunshine on cloudy days, my peace in chaotic times, and my greatest blessing. Every day with you is a gift I cherish more than words can express. You inspire me to be better, to dream bigger, and to love deeper.
+
+I am so grateful for every moment we've shared—the laughs, the late-night talks, the silly jokes, and even the quiet moments when we just exist together. You've become my home, my safe place, and my forever person.
+
+On this special day, I want you to know that you deserve all the happiness in the world. You deserve to be celebrated not just today, but every single day. I promise to always be by your side, to support your dreams, to hold you when you're sad, and to celebrate with you when you're happy.
+
+Thank you for being you—for being kind, beautiful, strong, and absolutely perfect in my eyes. Thank you for choosing me, for loving me, and for making my life infinitely better just by being in it.
+
+I love you more than words could ever capture, more than any letter could convey. Today and always, you are my everything.
+
+Happy Birthday, my love. Here's to many more birthdays together, creating beautiful memories and building our forever.
+
+Forever yours,
+Your Love ❤️`;
+
+      let index = 0;
+      const typingSpeed = 30;
+      const textElement = document.getElementById('typed-text');
+      const cursor = document.getElementById('cursor');
+
+      function typeWriter() {
+        if (index < letterText.length) {
+          const char = letterText.charAt(index);
+          if (char === '\n') {
+            textElement.innerHTML += '<br>';
+          } else {
+            textElement.innerHTML += char;
+          }
+          index++;
+          setTimeout(typeWriter, typingSpeed);
+
+          textElement.parentElement.scrollTop = textElement.parentElement.scrollHeight;
+        } else {
+          cursor.style.animation = 'blink 1s infinite';
+        }
+      }
+
+      window.addEventListener('load', () => {
+        setTimeout(typeWriter, 500);
+      });
+    </script>
+  </body>
+</html>

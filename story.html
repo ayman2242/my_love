@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Love Story ⏳</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="story-page">
+    <div class="story-container fade-in">
+      <h1 class="page-title">Our Love Story ⏳</h1>
+      <p class="story-subtitle">Every moment with you is a chapter in our forever</p>
+
+      <div class="timeline">
+        <div class="timeline-item" data-index="0">
+          <div class="timeline-icon">💬</div>
+          <div class="timeline-content">
+            <h3>First Message</h3>
+            <p class="timeline-date">The beginning of forever</p>
+            <p>The day I said hello and you replied... my heart knew something special was about to happen.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-index="1">
+          <div class="timeline-icon">📞</div>
+          <div class="timeline-content">
+            <h3>First Call</h3>
+            <p class="timeline-date">Hearing your voice</p>
+            <p>Your voice became my favorite sound. Hours felt like minutes when we talked.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-index="2">
+          <div class="timeline-icon">❤️</div>
+          <div class="timeline-content">
+            <h3>First "I Love You"</h3>
+            <p class="timeline-date">Three words that changed everything</p>
+            <p>The moment I realized you were my person, my soulmate, my everything.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-index="3">
+          <div class="timeline-icon">🌟</div>
+          <div class="timeline-content">
+            <h3>Our First Adventure</h3>
+            <p class="timeline-date">Creating memories together</p>
+            <p>Every adventure with you is my favorite. You make ordinary moments extraordinary.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-index="4">
+          <div class="timeline-icon">💕</div>
+          <div class="timeline-content">
+            <h3>Growing Together</h3>
+            <p class="timeline-date">Building our forever</p>
+            <p>Through ups and downs, we've grown stronger. You're my home, my peace, my everything.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-index="5">
+          <div class="timeline-icon">🎂</div>
+          <div class="timeline-content">
+            <h3>Today</h3>
+            <p class="timeline-date">Your special day</p>
+            <p>Happy Birthday, my love. Thank you for being you. Here's to forever and always.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-actions">
+        <button class="back-btn" onclick="window.location.href='menu.html'">
+          ← Back to Menu
+        </button>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>Made with love ❤️</p>
+    </footer>
+
+    <script>
+      const observerOptions = {
+        threshold: 0.3,
+        rootMargin: '0px 0px -100px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.timeline-item').forEach(item => {
+        observer.observe(item);
+      });
+    </script>
+  </body>
+</html>
